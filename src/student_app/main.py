@@ -5,7 +5,7 @@ from student_app.config import APP_NAME, DEBUG, MAX_STUDENTS
 from student_app.logger import logger
 from student_app.models.student import Student
 from student_app.reports.student_report import display_report
-from student_app.services.calculator import calculate_grade
+from student_app.services.calculator import calculate_grade, get_status
 from student_app.utils.validation import validate_name, validate_marks
 
 DATA_FILE = Path(__file__).resolve().parents[2] / "data" / "student.json"
@@ -70,6 +70,7 @@ def main():
     student = Student(name, marks, grade)
     logger.info(f"Report generated for {name}")
     display_report(student)
+    print(f"Status: {get_status(marks)}")
 
 
 if __name__ == "__main__":

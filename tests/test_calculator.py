@@ -1,5 +1,4 @@
-from student_app.services.calculator import calculate_grade
-
+from student_app.services.calculator import calculate_grade, get_status
 
 def test_grade_a():
     assert calculate_grade(85) == "A"
@@ -19,3 +18,12 @@ def test_grade_d():
 
 def test_grade_f():
     assert calculate_grade(40) == "F"
+
+    
+
+def test_status_pass():
+    assert get_status(50) == "Pass"
+
+
+def test_status_fail():
+    assert get_status(49) == "Fail"
